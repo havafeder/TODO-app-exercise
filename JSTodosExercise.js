@@ -18,7 +18,7 @@ for (let i = 0; i < todoItems.length; i++){
 	
 		checked.setAttribute('type', 'checkbox');
 		newLi.innerText = newTodo.value;
-		newButton.innerText = 'Remove';
+		newButton.innerText = 'X';
 		newLi.append(newButton);
 		newLi.append(checked);
 		todoList.append(newLi);

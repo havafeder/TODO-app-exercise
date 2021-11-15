@@ -2,7 +2,7 @@ const form = document.querySelector('form');
 const todoList = document.querySelector('#todo-list');
 const newLi = document.createElement('li');
 
-const todoItems = JSON.parse(localStorage.getItem('todos'));
+const todoItems = JSON.parse(localStorage.getItem('todos')) || [];
 for (let i = 0; i < todoItems.length; i++){
 	newLi.innerText = todoItems[i].todo;
 	todoList.appendChild(newLi);

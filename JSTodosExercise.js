@@ -1,4 +1,4 @@
-document.addEventListener('DOMContenetLoaded', function() { 
+document.addEventListener('DOMContentLoaded', function() { 
 	const form = document.querySelector('form');
 const todoList = document.querySelector('#todo-list');
 const newLi = document.createElement('li');

@@ -10,17 +10,19 @@ for (let i = 0; i < todoItems.length; i++){
 	form.addEventListener('submit', function (e) {
 		e.preventDefault();
 
-		const newTodo = document.querySelector('#new - todo');
+		const newTodo = document.querySelector('#new-todo');
 		const newButton = document.createElement('button');
 		const checked = document.createElement('INPUT');
+		const todoCopy = document.querySelector('#todo-copy')
 	
 		checked.setAttribute('type', 'checkbox');
 		newLi.innerText = newTodo.value;
+		todoCopy.append(newLi.innerText);
 		newButton.innerText = 'Remove';
 		newLi.append(newButton);
 		newLi.append(checked);
 		todoList.append(newLi);
-		todoItems.push({ done: newLi.innerText });
+		todoItems.push({ done: todoCopy.innerText });
 		localStorage.setItem('todos', JSON.stringify(todoItems));
 	});
 

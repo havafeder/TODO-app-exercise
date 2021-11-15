@@ -1,4 +1,5 @@
-const form = document.querySelector('form');
+document.addEventListener('DOMContenetLoaded', function() { 
+	const form = document.querySelector('form');
 const todoList = document.querySelector('#todo-list');
 const newLi = document.createElement('li');
 
@@ -13,16 +14,15 @@ for (let i = 0; i < todoItems.length; i++){
 		const newTodo = document.querySelector('#new-todo');
 		const newButton = document.createElement('button');
 		const checked = document.createElement('INPUT');
-		const todoCopy = document.querySelector('#todo-copy')
+		const newLi = document.createElement('li');
 	
 		checked.setAttribute('type', 'checkbox');
 		newLi.innerText = newTodo.value;
-		todoCopy.append(newLi.innerText);
 		newButton.innerText = 'Remove';
 		newLi.append(newButton);
 		newLi.append(checked);
 		todoList.append(newLi);
-		todoItems.push({ done: todoCopy.innerText });
+		todoItems.push({ done: //don't know });
 		localStorage.setItem('todos', JSON.stringify(todoItems));
 	});
 
@@ -39,8 +39,7 @@ todoList.addEventListener('click', function (e) {
 		}
 	}
 });
-
-
+	});
 
 
 

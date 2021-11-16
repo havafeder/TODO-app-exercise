@@ -1,29 +1,34 @@
-
 const todoList = document.querySelector('#todo-list');
 const form = document.querySelector('form');
-const newLi = document.createElement('li');
+const newTodo = document.createElement('li');
 const newButton = document.createElement('button');
+const newCheck = document.createElement('input');
+newCheck.type = "checkbox";
 
 const todoItems = JSON.parse(localStorage.getItem('todos')) || [];
 for (let i = 0; i < todoItems.length; i++) {
-	newLi.innerText = todoItems[i].todo;
+	newTodo.innerText = todoItems[i].todo;
 	newButton.innerText = 'X';
-	newLi.appendChild(newButton);
-	todoList.appendChild(newLi);
+	newTodo.appendChild(newCheck);
+	todoList.appendChild(newTodo);
+	newTodo.appendChild(newButton);
 }
 
 form.addEventListener('submit', function (e) {
 	e.preventDefault();
 
-	const newTodo = document.querySelector('#new-todo');
+	const addTodo = document.querySelector('#new-todo');
+	const newTodo = document.createElement('li');
 	const newButton = document.createElement('button');
-	const newLi = document.createElement('li');
+	const newCheck = document.createElement('input');
+	newCheck.type = "checkbox";
 
-	newLi.innerText = newTodo.value;
+	newTodo.innerText = addTodo.value;
 	newButton.innerText = 'X';
-	newLi.appendChild(newButton);
-	todoList.appendChild(newLi);
-	todoItems.push({ todo: , done: false });
+	newTodo.appendChild(newCheck);
+	todoList.appendChild(newTodo);
+	newTodo.appendChild(newButton);
+	todoItems.push({ todo: newTodo.innerText, done: false });
 	localStorage.setItem('todos', JSON.stringify(todoItems));
 });
 
@@ -31,7 +36,7 @@ todoList.addEventListener('click', function (e) {
 	if (e.target.tagName === 'BUTTON') {
 		e.target.parentElement.remove();
 	}
-	else if (e.target.tagName === 'LI') {
+	else if (e.target.tagName === 'INPUT') {
 		e.target.parentElement.classList.toggle('crossed');
 	}
 	for (let i = 0; i < todoItems.length; i++) {
@@ -40,3 +45,4 @@ todoList.addEventListener('click', function (e) {
 		}
 	}
 });
+

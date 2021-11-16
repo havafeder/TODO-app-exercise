@@ -18,14 +18,12 @@ form.addEventListener('submit', function (e) {
 	const newTodo = document.querySelector('#new-todo');
 	const newButton = document.createElement('button');
 	const newLi = document.createElement('li');
-	const todoCopy = document.getElementById('#todo-copy');
 
 	newLi.innerText = newTodo.value;
-	todoCopy.append(newLi.innerText);
 	newButton.innerText = 'X';
 	newLi.appendChild(newButton);
 	todoList.appendChild(newLi);
-	todoItems.push({ todo: todoCopy.innerText, done: false });
+	todoItems.push({ todo: , done: false });
 	localStorage.setItem('todos', JSON.stringify(todoItems));
 });
 

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function (e) {
+
 	const todoList = document.querySelector('#todo-list');
 	const form = document.querySelector('form');
 	
@@ -46,4 +46,3 @@ document.addEventListener('DOMContentLoaded', function (e) {
 			localStorage.setItem('todos', JSON.stringify(todoItems));
 		}
 	});
-});

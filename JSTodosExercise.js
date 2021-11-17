@@ -40,7 +40,11 @@
 	todoList.addEventListener('click', function (e) {
 		if (e.target.tagName === 'BUTTON') {
 			e.target.parentElement.remove();
-		}
+				const items = localStorage.getItem('todos');
+		const updatedItem = JSON.parse(items).filter(
+			(item) => item / todo !== e.target.previousSibling.innerText
+		);
+		localStorage.setItem('todos', JSON.stringify(updatedItem));		}
 		if (e.target.tagName === 'INPUT') {
 			e.target.parentElement.classList.toggle('crossed');
 			localStorage.setItem('todos', JSON.stringify(todoItems));
